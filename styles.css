@@ -1,0 +1,50 @@
+body{
+  display:flex;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+}
+section{
+  border-style: solid;
+}
+img {
+  height: 5%;
+  width: 5%;
+}
+
+.starred-box{
+  display: flex;
+  flex-direction: column;
+}
+
+.idea-input-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.search-input{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.search-button {
+  display:flex;
+  justify-content: flex-start;
+  width: 2%;
+  height: 2%;
+}
+
+.idea-box{
+  border-style: solid;
+  display: grid;
+  height: 15%;
+  width: 15%;
+}
+
+.idea-grid{
+  display: grid;
+  border-style: solid;
+}
