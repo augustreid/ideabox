@@ -1,6 +1,16 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+
 body{
   display:flex;
   font-family: open sans, bold;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 100%;
 }
 
 h1,
@@ -11,15 +21,40 @@ h1,
 }
 
 aside {
-  display: flex;
-  flex-direction: column;
   border-style: solid;
   background-color: #1f1f3d;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 15%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
 
 #input-form-body {
   background-color: #a9aad2;
   border-style: solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50%
+}
+
+.idea-input-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.idea-title {
+  height: 10%;
+  width: 30%;
+
 }
 
 img {
