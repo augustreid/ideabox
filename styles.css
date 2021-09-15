@@ -59,6 +59,13 @@ main {
 
 }
 
+.idea-body-input {
+  height: 15%;
+  width: 40%;
+  border: 2px solid black
+
+}
+
 img {
   height: 5%;
   width: 5%;
