@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<title>Ideabox</title>
+</head>
+<body>
+  <aside>
+    <h1>Ideabox</h1>
+    <section class="starred-box">
+      <h4>Filter Starred Ideas</h4>
+      <button type="button" class="show-starred-ideas">Show Starred Ideas</button>
+    </section>
+  </aside>
+  <main>
+    <section id="input-form-body">
+        <form class="idea-input-form">
+          <label for=“title” class="idea-title">Title</label>
+          <input type=“text” name="title" class="idea-title-input">
+          <label for=“body-form” class="user-text">Body</label>
+          <input type=“text” name="body-form" class="idea-body-input">
+        </form>
+        <button type="button" class="dark-purple save-button">Save</button>
+      <div class="search-bar-input">
+        <button type="button" class="search-button dark-purple"> <img src="assets/search.svg" alt="search icon"</button>
+        <input type="text" name="search-input" placeholder="Search ideas">
+      </div>
+    </section>
+    <section class="idea-grid">
+      <div class="idea-card">
+        <div class="idea-top">
+          <img src="assets/star-active.svg" alt="star">
+          <img src="assets/delete.svg" alt="delete">
+        </div>
+        <div class="idea-card-main">
+          <h2>Idea title</h2>
+          <p>idea body</p>
+        </div>
+        <div class="idea-bottom">
+          <img src="assets/comment.svg" alt="comment">
+          <p class="comment">Comment</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="Idea.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
