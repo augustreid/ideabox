@@ -4,11 +4,12 @@ class Idea {
     this.title = title; //string
     this.body = body; //string
     this.starred = false;
-    this.id = ;//date/time-stamp
+    this.id = Date.now();
 
   }
   saveToStorage() {
     //save new card to local data
+    //localStorage.setItem('objectId', JSON.stringify(object));
   }
   deleteFromStorage() {
     //search local storage for an idea card (by id?)
@@ -19,3 +20,5 @@ class Idea {
     //edit properties of idea card
   }
 }
+
+//retrieve var card = JSON.parse(localStorage.getItem('objectId'));
