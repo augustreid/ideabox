@@ -17,12 +17,9 @@ createIdea()
 }
 
 function createIdea (){
-  var newIdea = {
-    title: titleInput.value,
-    body: bodyInput.value,
-  }
-  var instancedIdea = new Idea(newIdea);
-  ideas.push(instancedIdea);
+var newIdea = new Idea(titleInput.value, bodyInput.value);
+
+  ideas.push(newIdea);
   ideaGrid.innerHTML += `
   <section class="idea-card">
       <div class="idea-card-top dark-purple">
@@ -30,8 +27,8 @@ function createIdea (){
         <img src="assets/delete.svg" alt="delete">
       </div>
       <div class="idea-card-main">
-        <h3 class="idea-title bold">${instancedIdea.title}</h3>
-        <p>${instancedIdea.body}</p>
+        <h3 class="idea-title bold">${newIdea.title}</h3>
+        <p>${newIdea.body}</p>
       </div>
       <button class="comment-button">
         <img class="comment-icon" src="assets/comment.svg" alt="comment">
@@ -40,7 +37,7 @@ function createIdea (){
     </section>
   `
   console.log("it works")
-  saveToStorage(instancedIdea);
+newIdea.saveToStorage();
 
 }
 function saveIdea (){
