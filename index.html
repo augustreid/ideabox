@@ -3,13 +3,14 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <title>Ideabox</title>
 </head>
 <body>
   <aside>
-    <h1>Ideabox</h1>
+    <h1 class="bold">Ideabox</h1>
     <section class="starred-box">
-      <h4>Filter Starred Ideas</h4>
+      <h4 class="bold">Filter Starred Ideas</h4>
       <button type="button" class="show-starred-ideas">Show Starred Ideas</button>
     </section>
   </aside>
@@ -29,20 +30,20 @@
     </div>
     </section>
     <section class="idea-grid">
-      <div class="idea-card">
-        <div class="idea-top">
-          <img class="star-button" src="assets/star-active.svg" alt="star">
-          <img class="delete-button" src="assets/delete.svg" alt="delete">
+      <section class="idea-card">
+        <div class="idea-card-top dark-purple">
+          <img src="assets/star-active.svg" alt="star">
+          <img src="assets/delete.svg" alt="delete">
         </div>
         <div class="idea-card-main">
-          <h2>Idea title</h2>
-          <p>idea body</p>
+          <h3 class="idea-title bold">Idea title</h3>
+          <p>Idea body. Don't ever play yourself. Every chance I get, I water the plants, Lion! Cloth talk. </p>
         </div>
-        <div class="idea-bottom">
-          <img src="assets/comment.svg" alt="comment">
-          <p class="comment">Comment</p>
-        </div>
-      </div>
+        <button class="comment-button">
+          <img class="comment-icon" src="assets/comment.svg" alt="comment">
+          <h3 class="bold comment">Comment</h3>
+        </button>
+      </section>
     </section>
   </main>
   <script src="Idea.js"></script>
