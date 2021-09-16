@@ -16,21 +16,21 @@
   </aside>
   <main>
     <section id="input-form-body">
-        <form class="idea-input-form">
-          <label for=“title” class="idea-title">Title</label>
-          <input type=“text” name="title" class="idea-title-input">
-          <label for=“body-form” class="user-text">Body</label>
-          <input type=“text” name="body-form" class="idea-body-input">
-        </form>
-        <button type="button" class="dark-purple save-button">Save</button>
-      <div class="search-bar-input">
-        <button type="button" class="search-button dark-purple"> <img src="assets/search.svg" alt="search icon"</button>
-        <input type="text" name="search-input" placeholder="Search ideas">
-      </div>
+          <form class="idea-input-form">
+            <label for=“title” class="idea-title">Title</label>
+              <input type=“text” name="title" class="idea-title-input">
+            <label for=“body-form” class="user-text">Body</label>
+              <input type=“text” name="body-form" class="idea-body-input">
+            <button type="button" class="dark-purple save-button">Save</button>
+          </form>
+    <div class="search-area">
+        <button type="button" class="search-button dark-purple">
+          <img src="assets/search.svg" alt="search icon" class="search-icon"></button>
+        <input type="text" name="search-input" id="search-bar" placeholder="Search ideas">
+    </div>
     </section>
-
     <section class="idea-grid">
-      <article class="idea-card">
+      <section class="idea-card">
         <div class="idea-card-top dark-purple">
           <img src="assets/star-active.svg" alt="star">
           <img src="assets/delete.svg" alt="delete">
@@ -43,7 +43,7 @@
           <img class="comment-icon" src="assets/comment.svg" alt="comment">
           <h3 class="bold comment">Comment</h3>
         </button>
-      </article>
+      </section>
     </section>
   </main>
   <script src="Idea.js"></script>

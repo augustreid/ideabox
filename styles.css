@@ -25,13 +25,22 @@ h1,
   color: #e9e9f3;
 }
 
+.show-starred-ideas {
+  padding: 0px;
+  margin: auto;
+  border: solid #353567 3px;
+  box-shadow: none;
+  border-radius: 0;
+  border: 0;
+}
+
 aside {
-  border-style: solid;
+  font-family: open sans, bold;
   background-color: #1f1f3d;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 15%;
+  width: 25%
 }
 
 main {
@@ -39,40 +48,49 @@ main {
   flex-direction: column;
   width: 100%;
   height: 100%;
+  border: 1px solid #353567;
+  border-radius: 2px;
 }
 
 #input-form-body {
   background-color: #a9aad2;
-  border-style: solid;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 50%;
+  justify-content: space-around;
+  height: 60%;
   flex-wrap: nowrap;
 }
 
 .idea-input-form {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-basis: 0;
+  width: 40%;
 }
 
 .idea-title-input {
   height: 15%;
-  width: 200%;
-  border: 2px solid black
+  width: 100%;
+  border: 1px solid #353567;
+  border-radius: 2px;
 }
 
 .idea-body-input {
-  height: 100%;
-  width: 200%;
-  border: 2px solid black
-
+  flex-grow: 1;
+  height: 60px;
+  width: 100%;
+  border: 1px solid #353567;
+  border-radius: 2px;
 }
 
 
 .save-button {
-  width: 40%;
+  width: 100%;
+  height: 25px;
+  margin: 0;
+  margin-top: 10px;
+  padding: 0;
+  border: 1px solid #353567;
+  border-radius: 2px;
 }
 
 
@@ -90,16 +108,42 @@ img {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  padding: 0;
+  margin: 0;
+
 }
 
-.search-bar-input {
+
+.search-area {
   display: flex;
-  flex-direction: row;
+  width: 40%;
 }
+
+.search-icon {
+  width: 75%;
+  height: 75%;
+  margin: 0;
+  padding: 0;
+}
+
 
 .search-button {
-  width: 5%;
-  height: 5%;
+  width: 20px;
+  height: 20px;
+  padding: 0px;
+  margin: 0;
+  box-shadow: none;
+  border-radius: 0;
+  border: 0;
+}
+
+#search-bar {
+  padding: 0px;
+  display: inline;
+  margin: 0;
+  width: 100%;
+  border: 1px solid #353567;
+  border-radius: 2px;
 }
 
 .idea-card {
@@ -147,7 +191,26 @@ img {
   /* display: grid;
   border-style: solid; */
   background-color: #eaeaf4;
+
+
+.idea-card{
+  border-style: solid;
+  display: grid;
+  height: 15%;
+  width: 15%;
 }
+
+
+/* Grid layout for idea cards. 
+They extend automagically and are even a part.
+Used CSS grid template.  */
+
+/* .idea-grid{
+  height: 40%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+  grid-auto-rows: minmax(100px, auto); */
+/* } */
 
 .dark-purple {
   background-color: #1f1f3d;
