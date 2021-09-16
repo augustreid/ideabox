@@ -22,11 +22,14 @@ h1,
 .show-starred-ideas {
   padding: 0px;
   margin: auto;
+  border: solid #353567 3px;
+  box-shadow: none;
+  border-radius: 0;
+  border: 0;
 }
 
 aside {
   font-family: open sans, bold;
-  border-style: solid;
   background-color: #1f1f3d;
   display: flex;
   flex-direction: column;
@@ -39,8 +42,8 @@ main {
   flex-direction: column;
   width: 100%;
   height: 100%;
-  /* flex-grow: 7;
-  flex-shrink: 7; */
+  border: 1px solid #353567;
+  border-radius: 2px;
 }
 
 #input-form-body {
@@ -62,6 +65,8 @@ main {
 .idea-title-input {
   height: 15%;
   width: 100%;
+  border: 1px solid #353567;
+  border-radius: 2px;
 
 }
 
@@ -69,15 +74,20 @@ main {
   flex-grow: 1;
   height: 60px;
   width: 100%;
+  border: 1px solid #353567;
+  border-radius: 2px;
 
 }
 
 
 .save-button {
   width: 100%;
+  height: 25px;
   margin: 0;
   margin-top: 10px;
   padding: 0;
+  border: 1px solid #353567;
+  border-radius: 2px;
 }
 
 
@@ -102,7 +112,7 @@ img {
 }
 
 
-.search-bar {
+.search-area {
   display: flex;
   width: 40%;
 }
@@ -115,19 +125,23 @@ img {
 }
 
 
-
 .search-button {
   width: 20px;
   height: 20px;
   padding: 0px;
   margin: 0;
+  box-shadow: none;
+  border-radius: 0;
+  border: 0;
 }
 
-#search-space {
+#search-bar {
   padding: 0px;
   display: inline;
   margin: 0;
   width: 100%;
+  border: 1px solid #353567;
+  border-radius: 2px;
 }
 
 
@@ -139,10 +153,16 @@ img {
   width: 15%;
 }
 
+
+/* Grid layout for idea cards. 
+They extend automagically and are even a part.
+Used CSS grid template.  */
+
 .idea-grid{
   height: 40%;
-  border-style: solid;
-  background-color: #eaeaf4;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+  grid-auto-rows: minmax(100px, auto);
 }
 
 .dark-purple {
