@@ -7,17 +7,18 @@ class Idea {
     this.id = Date.now();
 
   }
-  saveToStorage() {
-    //save new card to local data
-    //localStorage.setItem('objectId', JSON.stringify(object));
+  saveToStorage(this) {
+    var stringifiedIdea = JSON.stringify(this);
+    localStorage.setItem(`${this.id}` , stringifiedIdea);
   }
   deleteFromStorage() {
-    //search local storage for an idea card (by id?)
-    //delete existing card from local data
+    localStorage.removeItem(`${this.id}`);
   }
   updateIdea() {
-    //search local storage for an idea card (by id?)
-    //edit properties of idea card
+    var getItem = localStorage.getItem(`${this.id}`);
+    var parsedIdea = JSON.parse(getItem);
+    parsedIdea.starred = true;
+    //push updatedIdea back into local storage 
   }
 }
 
