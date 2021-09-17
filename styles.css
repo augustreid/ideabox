@@ -99,12 +99,12 @@ main {
   background-color: #353567;
 }
 
-/* .save-button:disabled,
+.save-button:disabled,
 .save-button[disabled] {
   border: 1px solid #999999;
   background-color: #eaeaf4;
   cursor: none;
-} */
+}
 
 
 img {

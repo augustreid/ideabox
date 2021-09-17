@@ -11,7 +11,8 @@ var ideaGrid = document.querySelector("#ideaGrid");
 var ideas = [];
 
 saveButton.addEventListener('click' , addIdeas)
-saveButton.addEventListener('keyup', enableButton)
+titleInput.addEventListener('keyup', enableButton)
+bodyInput.addEventListener('keyup', enableButton)
 
 function addIdeas() {
 createIdea()
@@ -53,7 +54,7 @@ function clearOnSave() {
 }
 
 function enableButton() {
-  if (titleInput.value && bodyInput.value) {
-  document.getElementById('saveButton').disabled = false;
+if (titleInput.value != "" && bodyInput.value != ""){
+    saveButton.disabled = false;
   }
 }
