@@ -11,9 +11,11 @@ var ideaGrid = document.querySelector("#ideaGrid");
 var ideas = [];
 
 saveButton.addEventListener('click' , addIdeas)
+saveButton.addEventListener('keyup', enableButton)
 
 function addIdeas() {
 createIdea()
+clearOnSave()
 }
 
 function createIdea (){
@@ -43,4 +45,15 @@ newIdea.saveToStorage();
 function saveIdea (){
 var stringifiedArray =  JSON.stringify(ideas);
   localStorage.setItem('savedArray', stringifiedArray);
+}
+
+function clearOnSave() {
+  titleInput.value = "";
+  bodyInput.value = "";
+}
+
+function enableButton() {
+  if (titleInput.value && bodyInput.value) {
+  document.getElementById('saveButton').disabled = false;
+  }
 }
