@@ -11,31 +11,32 @@ var ideaCard = document.querySelector('#ideaCard');
 var ideaCardTop = document.querySelector('#ideaCardTop');
 var ideas = [];
 
-saveButton.addEventListener('click' , addIdeas)
+saveButton.addEventListener('click', addIdeas)
 titleInput.addEventListener('keyup', enableButton)
 bodyInput.addEventListener('keyup', enableButton)
 ideaGrid.addEventListener("click", deleteAndRender);
 
-function deleteAndRender(){
+function deleteAndRender() {
   deleteCard()
   render()
 }
 
 function addIdeas() {
-createIdea()
-clearOnSave()
-render()
-disableButton()
+  createIdea()
+  clearOnSave()
+  render()
+  disableButton()
 }
 
-function createIdea ()  {
-var newIdea = new Idea(titleInput.value, bodyInput.value);
+function createIdea() {
+  var newIdea = new Idea(titleInput.value, bodyInput.value);
   ideas.push(newIdea);
   newIdea.saveToStorage();
 
 }
-function saveIdea (){
-var stringifiedArray =  JSON.stringify(ideas);
+
+function saveIdea() {
+  var stringifiedArray = JSON.stringify(ideas);
   localStorage.setItem('savedArray', stringifiedArray);
 }
 
@@ -45,18 +46,16 @@ function clearOnSave() {
 }
 
 function enableButton() {
-if (titleInput.value != "" && bodyInput.value != ""){
+  if (titleInput.value != "" && bodyInput.value != "") {
     saveButton.disabled = false;
   }
 }
 
 function deleteCard() {
-  if (event.target.id === 'deleteButton') {
-    event.target.parentNode.classList.add('hidden');
-  }
-  for (var i = 0; i < ideas.length; i++){
-    if (ideas[i].id === parseInt(event.target.parentNode.id)) {
-      ideas.splice(i,1)
+  if (event.target.classList.contains('delete-button')) {
+    for (var i = 0; i < ideas.length; i++) {
+   (ideas[i].id === parseInt(event.target.parentNode.id))
+         ideas.splice(i, 1)
     }
   }
 }
@@ -65,14 +64,14 @@ function render() {
   ideaGrid.innerHTML = "";
   for (var i = 0; i < ideas.length; i++) {
     ideaGrid.innerHTML += `
-  <section class="idea-card" id="${ideas[i].id}">
-      <div class="idea-card-top dark-purple">
-        <img src="assets/star-active.svg" alt="star">
-        <img src="assets/delete.svg" alt="delete">
+    <section class="idea-card" id="${ideas[i].id}">
+      <div class="idea-card-top dark-purple" id="ideaCardTop">
+        <img src="assets/star-active.svg" alt="star" id="starButton" class="class-button">
+        <img src="assets/delete.svg" alt="delete" id="deleteButton" class="delete-button">
       </div>
       <div class="idea-card-main">
         <h3 class="idea-title bold">${ideas[i].title}</h3>
-        <p>${ideas[i].body}</p>
+        <p>${ideas[i].body} </p>
       </div>
       <button class="comment-button">
         <img class="comment-icon" src="assets/comment.svg" alt="comment">
