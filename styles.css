@@ -250,3 +250,8 @@ h4 {
 .hidden {
   display: none;
 }
+
+.fill {
+  background-color: red;
+
+}

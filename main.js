@@ -70,10 +70,16 @@ function deleteCard() {
   //replace star with activeStar
 
 function favoriteCard() {
-  if (event.target.parentNode.parentNode.isStarred === false) {
-    whiteStarButton.classList.replace('whiteStarButton', 'redStarButton')
+  if (event.target.parentNode.parentNode.isStarred === false)) {
+    for (var i = 0; i < ideas.length; i++) {
+
+    }
+    console.log("Make it red")
+    whiteStarButton.classList.toggle('red-star');
+    event.target.isStarred === true;
+    }
   }
-}
+
 
 
 
