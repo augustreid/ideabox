@@ -5,14 +5,15 @@ html {
 
 
 body{
-  display:flex;
+  display: flex;
   font-family: "open sans", sans-serif;
   font-weight: lighter;
   padding: 0px;
   margin: 0px;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
+
 
 /* .bold {
   font-weight: bold;
@@ -79,6 +80,7 @@ main {
   justify-content: center;
   height: 60%;
   flex-wrap: nowrap;
+  padding-bottom: 30px;
 }
 
 .idea-input-form {
@@ -180,9 +182,9 @@ img {
 .idea-card {
   display: flex;
   flex-direction: column;
-  height: 15%;
-  width: 30%;
-  margin: 5%;
+  height: 10%;
+  width: 65%;
+  padding: 3%;
 }
 
 .idea-card-top {
@@ -214,7 +216,7 @@ img {
 }
 
 .comment-icon {
-  height: 500%;
+  height: 200%;
 }
 
 
@@ -223,7 +225,7 @@ img {
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
   background-color: #eaeaf4;
-  border: black 6px solid;
+  /* border: black 6px solid; */
 }
 
 .dark-purple {
