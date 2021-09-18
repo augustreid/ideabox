@@ -14,7 +14,12 @@ var ideas = [];
 saveButton.addEventListener('click' , addIdeas)
 titleInput.addEventListener('keyup', enableButton)
 bodyInput.addEventListener('keyup', enableButton)
-ideaGrid.addEventListener("click", deleteCard);
+ideaGrid.addEventListener("click", deleteAndRender);
+
+function deleteAndRender(){
+  deleteCard()
+  render()
+}
 
 function addIdeas() {
 createIdea()
@@ -45,13 +50,14 @@ if (titleInput.value != "" && bodyInput.value != ""){
   }
 }
 
-
-
-//Delete card function attempt#1 (Trying to recreate small group example)
-//Console.log only works on initial card--may be because ideas array logging out empty
 function deleteCard() {
-  if (event.target.classList.contains('delete-button')) {
+  if (event.target.id === 'deleteButton') {
     event.target.parentNode.classList.add('hidden');
+  }
+  for (var i = 0; i < ideas.length; i++){
+    if (ideas[i].id === parseInt(event.target.parentNode.id)) {
+      ideas.splice(i,1)
+    }
   }
 }
 
@@ -59,7 +65,7 @@ function render() {
   ideaGrid.innerHTML = "";
   for (var i = 0; i < ideas.length; i++) {
     ideaGrid.innerHTML += `
-  <section class="idea-card">
+  <section class="idea-card" id="${ideas[i].id}">
       <div class="idea-card-top dark-purple">
         <img src="assets/star-active.svg" alt="star">
         <img src="assets/delete.svg" alt="delete">
