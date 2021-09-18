@@ -17,7 +17,6 @@ saveButton.addEventListener('click' , addIdeas)
 saveButton.addEventListener('click', addIdeas)
 titleInput.addEventListener('keyup', enableButton)
 bodyInput.addEventListener('keyup', enableButton)
-window.addEventListener("load", showCards)
 ideaGrid.addEventListener("click", deleteAndRender);
 whiteStarButton.addEventListener("click", favoriteCard)
 
@@ -27,40 +26,18 @@ function deleteAndRender() {
 }
 
 function addIdeas() {
-createIdea()
-clearOnSave()
   createIdea()
   clearOnSave()
   render()
   disableButton()
 }
 
-function createIdea (){
-var newIdea = new Idea(titleInput.value, bodyInput.value);
 function createIdea() {
   var newIdea = new Idea(titleInput.value, bodyInput.value);
   ideas.push(newIdea);
-  ideaGrid.innerHTML += `
-  <section class="idea-card">
-      <div class="idea-card-top dark-purple">
-        <img src="assets/star-active.svg" alt="star">
-        <img src="assets/delete.svg" alt="delete">
-      </div>
-      <div class="idea-card-main">
-        <h3 class="idea-title bold">${newIdea.title}</h3>
-        <p>${newIdea.body}</p>
-      </div>
-      <button class="comment-button">
-        <img class="comment-icon" src="assets/comment.svg" alt="comment">
-        <h3 class="bold comment">Comment</h3>
-      </button>
-    </section>`
-newIdea.saveToStorage();
   newIdea.saveToStorage();
 
 }
-function saveIdea (){
-var stringifiedArray =  JSON.stringify(ideas);
 
 function saveIdea() {
   var stringifiedArray = JSON.stringify(ideas);
@@ -73,7 +50,6 @@ function clearOnSave() {
 }
 
 function enableButton() {
-if (titleInput.value != "" && bodyInput.value != ""){
   if (titleInput.value != "" && bodyInput.value != "") {
     saveButton.disabled = false;
   }
@@ -109,30 +85,6 @@ function favoriteCard() {
 
 
 
-//things are saved on local storage but not the ideas array
-// function showCards() {
-//   var retrievedArray = [];
-//   for(var i = 0; i < ideas.length; i++) {
-//     var retrievedIdea = localStorage.getItem(retrievedArray[i])
-//     var retrievedParsedIdea = JSON.parse(retrievedIdea)
-//     retrievedArray.push(retrievedParsedIdea)
-//     ideaGrid.innerHTML +=
-//     `<section class="idea-card">
-//         <div class="idea-card-top dark-purple">
-//           <img src="assets/star-active.svg" alt="star">
-//           <img src="assets/delete.svg" alt="delete">
-//         </div>
-//         <div class="idea-card-main">
-//           <h3 class="idea-title bold">${retrievedArray[i].title}</h3>
-//           <p>${retrievedArray[i].body}</p>
-//         </div>
-//         <button class="comment-button">
-//           <img class="comment-icon" src="assets/comment.svg" alt="comment">
-//           <h3 class="bold comment">Comment</h3>
-//         </button>
-//       </section>`
-//   } return retrievedArray;
-// }
 function render() {
   ideaGrid.innerHTML = "";
   for (var i = 0; i < ideas.length; i++) {
