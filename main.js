@@ -4,7 +4,7 @@ var saveButton = document.querySelector(".save-button");
 var searchInput = document.querySelector("#searchBar");
 var searchButton = document.querySelector(".search-button");
 var showStarredButton = document.querySelector(".show-starred-ideas");
-var starButton = document.querySelector(".star-button");
+var whiteStarButton = document.querySelector("#whiteStar");
 var deleteButton = document.querySelector(".delete-button");
 var ideaGrid = document.querySelector("#ideaGrid");
 var ideaCard = document.querySelector('#ideaCard');
@@ -60,13 +60,19 @@ function deleteCard() {
   }
 }
 
+
+//Make the star clickable
+//When the star is clicked-- Class is updated
+//
+
+
 function render() {
   ideaGrid.innerHTML = "";
   for (var i = 0; i < ideas.length; i++) {
     ideaGrid.innerHTML += `
     <section class="idea-card" id="${ideas[i].id}">
       <div class="idea-card-top dark-purple" id="ideaCardTop">
-        <img src="assets/star-active.svg" alt="star" id="starButton" class="class-button">
+        <img src="assets/starsvg" alt="star" id="whiteStar" class="white-star">
         <img src="assets/delete.svg" alt="delete" id="deleteButton" class="delete-button">
       </div>
       <div class="idea-card-main">
