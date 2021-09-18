@@ -8,12 +8,14 @@ class Idea {
 
   }
   saveToStorage() {
-    var saveData = [{
+    var saveData = [
+      {
       "title": this.title,
       "body": this.body,
       "isStarred": this.isStarred,
       "id": this.id
-    }]
+    }
+  ]
     var stringifiedIdea = JSON.stringify(saveData);
     localStorage.setItem(`${this.id}` , stringifiedIdea);
   }
