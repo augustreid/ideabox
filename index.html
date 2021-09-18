@@ -21,7 +21,7 @@
               <input type=“text” name="title" class="idea-title-input">
             <label for=“body-form” class="user-text">Body</label>
               <input type=“text” name="body-form" class="idea-body-input">
-            <button type="button" class="dark-purple save-button">Save</button>
+            <button type="button" disabled class="dark-purple save-button" id='saveButton'>Save</button>
           </form>
     <div class="search-area">
         <button type="button" class="search-button dark-purple">
@@ -29,7 +29,7 @@
         <input type="text" name="search-input" id="search-bar" placeholder="Search ideas">
     </div>
     </section>
-    <section class="idea-grid">
+    <section class="idea-grid" id="ideaGrid">
       <section class="idea-card">
         <div class="idea-card-top dark-purple">
           <img src="assets/star-active.svg" alt="star">
