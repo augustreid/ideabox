@@ -4,7 +4,6 @@ var saveButton = document.querySelector(".save-button");
 var searchInput = document.querySelector("#searchBar");
 var searchButton = document.querySelector(".search-button");
 var showStarredButton = document.querySelector(".show-starred-ideas");
-var starButton = document.querySelector(".star-button");
 var whiteStarButton = document.querySelector("#whiteStar");
 var redStarButton = document.querySelector("#redStar")
 var deleteButton = document.querySelector(".delete-button");
@@ -13,7 +12,6 @@ var ideaCard = document.querySelector('#ideaCard');
 var ideaCardTop = document.querySelector('#ideaCardTop');
 var ideas = [];
 
-saveButton.addEventListener('click' , addIdeas)
 saveButton.addEventListener('click', addIdeas)
 titleInput.addEventListener('keyup', enableButton)
 bodyInput.addEventListener('keyup', enableButton)
@@ -71,16 +69,16 @@ function deleteCard() {
   //When starred===true
   //replace star with activeStar
 
-function favoriteCard() {
-  if (event.target.parentNode.parentNode.isStarred === false)) {
-    for (var i = 0; i < ideas.length; i++) {
-
-    }
-    console.log("Make it red")
-    whiteStarButton.classList.toggle('red-star');
-    event.target.isStarred === true;
-    }
-  }
+// function favoriteCard() {
+//   if (event.target.parentNode.parentNode.isStarred === false)) {
+//     for (var i = 0; i < ideas.length; i++) {
+//
+//     }
+//     console.log("Make it red")
+//     whiteStarButton.classList.toggle('red-star');
+//     event.target.isStarred === true;
+//     }
+//   }
 
 
 
