@@ -201,8 +201,8 @@ img {
 
 
 .idea-grid{
-  /* display: grid;
-  border-style: solid; */
+  display: grid;
+  border-style: solid;
   background-color: #eaeaf4;
 
 
