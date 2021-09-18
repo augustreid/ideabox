@@ -19,27 +19,14 @@ ideaGrid.addEventListener("click", deleteCard);
 function addIdeas() {
 createIdea()
 clearOnSave()
+render()
+disableButton()
 }
 
-function createIdea (){
+function createIdea ()  {
 var newIdea = new Idea(titleInput.value, bodyInput.value);
   ideas.push(newIdea);
-  ideaGrid.innerHTML += `
-  <section class="idea-card">
-      <div class="idea-card-top dark-purple">
-        <img src="assets/star-active.svg" alt="star">
-        <img src="assets/delete.svg" alt="delete">
-      </div>
-      <div class="idea-card-main">
-        <h3 class="idea-title bold">${newIdea.title}</h3>
-        <p>${newIdea.body}</p>
-      </div>
-      <button class="comment-button">
-        <img class="comment-icon" src="assets/comment.svg" alt="comment">
-        <h3 class="bold comment">Comment</h3>
-      </button>
-    </section>`
-newIdea.saveToStorage();
+  newIdea.saveToStorage();
 
 }
 function saveIdea (){
@@ -64,7 +51,31 @@ if (titleInput.value != "" && bodyInput.value != ""){
 //Console.log only works on initial card--may be because ideas array logging out empty
 function deleteCard() {
   if (event.target.classList.contains('delete-button')) {
-    console.log('Are you there?')
     event.target.parentNode.classList.add('hidden');
   }
+}
+
+function render() {
+  ideaGrid.innerHTML = "";
+  for (var i = 0; i < ideas.length; i++) {
+    ideaGrid.innerHTML += `
+  <section class="idea-card">
+      <div class="idea-card-top dark-purple">
+        <img src="assets/star-active.svg" alt="star">
+        <img src="assets/delete.svg" alt="delete">
+      </div>
+      <div class="idea-card-main">
+        <h3 class="idea-title bold">${ideas[i].title}</h3>
+        <p>${ideas[i].body}</p>
+      </div>
+      <button class="comment-button">
+        <img class="comment-icon" src="assets/comment.svg" alt="comment">
+        <h3 class="bold comment">Comment</h3>
+      </button>
+    </section>`
+  }
+}
+
+function disableButton() {
+  saveButton.disabled = true;
 }
