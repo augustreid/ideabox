@@ -218,6 +218,7 @@ img {
 }
 
 
+
 .idea-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -244,3 +245,18 @@ img {
   background-color: #5356a4;
   padding: 5%;
 }
+
+
+h4 {
+ color: #bfbfdd;
+}
+
+.hidden {
+  display: none;
+}
+
+.fill {
+  background-color: red;
+
+}
+
