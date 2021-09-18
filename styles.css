@@ -246,3 +246,7 @@ Used CSS grid template.  */
 h4 {
  color: #bfbfdd;
 }
+
+.hidden {
+  display: none;
+}
