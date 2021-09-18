@@ -5,6 +5,7 @@ var searchInput = document.querySelector("#searchBar");
 var searchButton = document.querySelector(".search-button");
 var showStarredButton = document.querySelector(".show-starred-ideas");
 var whiteStarButton = document.querySelector("#whiteStar");
+var redStarButton = document.querySelector("#redStar")
 var deleteButton = document.querySelector(".delete-button");
 var ideaGrid = document.querySelector("#ideaGrid");
 var ideaCard = document.querySelector('#ideaCard');
@@ -15,6 +16,7 @@ saveButton.addEventListener('click', addIdeas)
 titleInput.addEventListener('keyup', enableButton)
 bodyInput.addEventListener('keyup', enableButton)
 ideaGrid.addEventListener("click", deleteAndRender);
+whiteStarButton.addEventListener("click", favoriteCard)
 
 function deleteAndRender() {
   deleteCard()
@@ -61,9 +63,18 @@ function deleteCard() {
 }
 
 
-//Make the star clickable
-//When the star is clicked-- Class is updated
-//
+//Make the star clickable (x)
+// When star clicked
+  //Update targeted card id (starred=true)
+  //When starred===true
+  //replace star with activeStar
+
+function favoriteCard() {
+  if (event.target.parentNode.parentNode.isStarred === false) {
+    whiteStarButton.classList.replace('whiteStarButton', 'redStarButton')
+  }
+}
+
 
 
 function render() {
@@ -72,8 +83,9 @@ function render() {
     ideaGrid.innerHTML += `
     <section class="idea-card" id="${ideas[i].id}">
       <div class="idea-card-top dark-purple" id="ideaCardTop">
-        <img src="assets/starsvg" alt="star" id="whiteStar" class="white-star">
+        <img src="assets/star.svg" alt="star" id="whiteStar" class="white-star">
         <img src="assets/delete.svg" alt="delete" id="deleteButton" class="delete-button">
+        <img src="assets/star-active.svg" alt="red star" id="redStar" class="red-star">
       </div>
       <div class="idea-card-main">
         <h3 class="idea-title bold">${ideas[i].title}</h3>
