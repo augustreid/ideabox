@@ -218,30 +218,21 @@ img {
 }
 
 
-.idea-grid{
-  /* display: grid; */
-  border-style: solid;
+.idea-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
   background-color: #eaeaf4;
+  border: black 6px solid;
+}
 
 
 .idea-card{
   border-style: solid;
-  display: grid;
   height: 15%;
   width: 15%;
 }
 
-
-/* Grid layout for idea cards.
-They extend automagically and are even a part.
-Used CSS grid template.  */
-
-.idea-grid {
-  height: 40%;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1em;
-  grid-auto-rows: minmax(100px, auto);
-  }
 
 .dark-purple {
   background-color: #1f1f3d;
