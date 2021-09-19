@@ -96,7 +96,6 @@ function render() {
       <div class="idea-card-top dark-purple" id="ideaCardTop">
         <img src="assets/star.svg" alt="star" id="whiteStar" class="white-star">
         <img src="assets/delete.svg" alt="delete" id="deleteButton" class="delete-button">
-        <img src="assets/star-active.svg" alt="red star" id="redStar" class="red-star">
       </div>
       <div class="idea-card-main">
         <h3 class="idea-title bold">${ideas[i].title}</h3>
@@ -109,6 +108,7 @@ function render() {
     </section>`
   }
 }
+//orange star <img src="assets/star-active.svg" alt="red star" id="redStar" class="red-star">
 
 function disableButton() {
   saveButton.disabled = true;
