@@ -69,24 +69,25 @@ function deleteCard() {
 //Assign each card to a grandy daddy id
 //toggle function between cards
 
-// function favoriteCard() {
-//   for (var i = 0; i < ideas.length; i++) {
-//     if (ideas[i].isStarred === false) {
-//       ideas[i].isStarred = true;
-//         if (event.target.classList.contains('white-star')) {
-//           console.log('you alive?')
-//           whiteStarButton.classList.add('hidden')
-//           redStarButton.classList.remove('hidden') }
-//     } else if (event.target.classList.contains('red-star')) {
-//         ideas[i].isStarred = false;
-//         if (event.target.classList.contains('white-star')) {
-//           redStarButton.classList.add('hidden')
-//           whiteStarButton.classList.remove('hidden')
-//           console.log('red star')
-//         }
-//       }
-//     }
-// }
+function favoriteCard() {
+//event.target.id === event.target.parentNode.parentNode.id
+  for (var i = 0; i < ideas.length; i++) {
+    if (ideas[i].isStarred === false) {
+      ideas[i].isStarred = true;
+        if (event.target.classList.contains('white-star')) {
+          console.log('you alive?')
+          whiteStarButton.classList.add('hidden')
+          redStarButton.classList.remove('hidden') }
+    } else if (event.target.classList.contains('red-star')) {
+        ideas[i].isStarred = false;
+        if (event.target.classList.contains('white-star')) {
+          redStarButton.classList.add('hidden')
+          whiteStarButton.classList.remove('hidden')
+          console.log('red star')
+        }
+      }
+    }
+}
 
 // event.target.parentNode.parentNode.id
 
