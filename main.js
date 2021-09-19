@@ -16,7 +16,8 @@ saveButton.addEventListener('click', addIdeas)
 titleInput.addEventListener('keyup', enableButton)
 bodyInput.addEventListener('keyup', enableButton)
 ideaGrid.addEventListener("click", deleteAndRender);
-whiteStarButton.addEventListener("click", favoriteCard)
+// whiteStarButton.addEventListener("click", favoriteCard)
+window.addEventListener("load", loadCards);
 
 function deleteAndRender() {
   deleteCard()
@@ -26,7 +27,6 @@ function deleteAndRender() {
 function addIdeas() {
   createIdea()
   clearOnSave()
-  saveIdea()
   render()
   disableButton()
 }
@@ -35,11 +35,6 @@ function createIdea() {
   var newIdea = new Idea(titleInput.value, bodyInput.value);
   ideas.push(newIdea);
   newIdea.saveToStorage();
-}
-
-function saveIdea() {
-  var stringifiedArray = JSON.stringify(ideas);
-  localStorage.setItem('savedArray', stringifiedArray);
 }
 
 function clearOnSave() {
@@ -56,13 +51,12 @@ function enableButton() {
 function deleteCard() {
   if (event.target.classList.contains('delete-button')) {
     for (var i = 0; i < ideas.length; i++) {
-  if (ideas[i].id === parseInt(event.target.parentNode.parentNode.id)) {
-           ideas.splice(i, 1);
-         console.log(event.target.parentNode.id)
-      }
+   (ideas[i].id === parseInt(event.target.parentNode.id))
+         ideas.splice(i, 1)
     }
   }
 }
+
 
 //Make the star clickable (x)
 // When star clicked
@@ -80,6 +74,16 @@ function deleteCard() {
 //     event.target.isStarred === true;
 //     }
 //   }
+function loadCards() {
+  ideas = [];
+  for (var i = 0; i < localStorage.length; i++) {
+    var key = localStorage.key(i);
+    var storedCard = JSON.parse(localStorage.getItem(key));
+    var displayedCard = new Idea(storedCard.title, storedCard.body, storedCard.star, storedCard.id);
+    ideas.push(displayedCard)
+    render();
+  }
+}
 
 
 
