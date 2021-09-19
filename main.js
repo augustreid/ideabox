@@ -4,24 +4,26 @@ var saveButton = document.querySelector(".save-button");
 var searchInput = document.querySelector("#searchBar");
 var searchButton = document.querySelector(".search-button");
 var showStarredButton = document.querySelector(".show-starred-ideas");
-var whiteStarButton = document.querySelector("#whiteStar");
-var redStarButton = document.querySelector("#redStar")
 var deleteButton = document.querySelector(".delete-button");
 var ideaGrid = document.querySelector("#ideaGrid");
 var ideaCard = document.querySelector('#ideaCard');
 var ideaCardTop = document.querySelector('#ideaCardTop');
+var whiteStarButton = document.querySelector('#whiteStar')
+var redStarButton = document.querySelector('#redStar')
 var ideas = [];
 
 saveButton.addEventListener('click', addIdeas)
 titleInput.addEventListener('keyup', enableButton)
 bodyInput.addEventListener('keyup', enableButton)
 ideaGrid.addEventListener("click", deleteAndRender);
-whiteStarButton.addEventListener("click", favoriteCard)
+ideaGrid.addEventListener("click", favoriteCard)
 
 function deleteAndRender() {
-  deleteCard()
-  render()
+  deleteCard();
+  render();
 }
+
+
 
 function addIdeas() {
   createIdea()
@@ -63,23 +65,30 @@ function deleteCard() {
 }
 
 
-//Make the star clickable (x)
-// When star clicked
-  //Update targeted card id (starred=true)
-  //When starred===true
-  //replace star with activeStar
+//Gabby's Code for Favorite Function
+//Assign each card to a grandy daddy id
+//toggle function between cards
 
-function favoriteCard() {
-  if (event.target.parentNode.parentNode.isStarred === false)) {
-    for (var i = 0; i < ideas.length; i++) {
+// function favoriteCard() {
+//   for (var i = 0; i < ideas.length; i++) {
+//     if (ideas[i].isStarred === false) {
+//       ideas[i].isStarred = true;
+//         if (event.target.classList.contains('white-star')) {
+//           console.log('you alive?')
+//           whiteStarButton.classList.add('hidden')
+//           redStarButton.classList.remove('hidden') }
+//     } else if (event.target.classList.contains('red-star')) {
+//         ideas[i].isStarred = false;
+//         if (event.target.classList.contains('white-star')) {
+//           redStarButton.classList.add('hidden')
+//           whiteStarButton.classList.remove('hidden')
+//           console.log('red star')
+//         }
+//       }
+//     }
+// }
 
-    }
-    console.log("Make it red")
-    whiteStarButton.classList.toggle('red-star');
-    event.target.isStarred === true;
-    }
-  }
-
+// event.target.parentNode.parentNode.id
 
 
 
@@ -89,9 +98,9 @@ function render() {
     ideaGrid.innerHTML += `
     <section class="idea-card" id="${ideas[i].id}">
       <div class="idea-card-top dark-purple" id="ideaCardTop">
-        <img src="assets/star.svg" alt="star" id="whiteStar" class="white-star">
+        <img src="assets/star.svg" alt="star" id="whiteStar" class="star-button white-star">
+        <img src="assets/star-active.svg" alt="red star" id="redStar" class="star-button red-star hidden">
         <img src="assets/delete.svg" alt="delete" id="deleteButton" class="delete-button">
-        <img src="assets/star-active.svg" alt="red star" id="redStar" class="red-star">
       </div>
       <div class="idea-card-main">
         <h3 class="idea-title bold">${ideas[i].title}</h3>
