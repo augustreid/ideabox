@@ -51,8 +51,10 @@ function enableButton() {
 function deleteCard() {
   if (event.target.classList.contains('delete-button')) {
     for (var i = 0; i < ideas.length; i++) {
-   (ideas[i].id === parseInt(event.target.parentNode.id))
-         ideas.splice(i, 1)
+  if (ideas[i].id === parseInt(event.target.parentNode.parentNode.id)) {
+           ideas.splice(i, 1);
+         console.log(event.target.parentNode.id)
+      }
     }
   }
 }
