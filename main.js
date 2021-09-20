@@ -16,14 +16,12 @@ saveButton.addEventListener('click', addIdeas)
 titleInput.addEventListener('keyup', enableButton)
 bodyInput.addEventListener('keyup', enableButton)
 ideaGrid.addEventListener("click", deleteAndRender);
-ideaGrid.addEventListener("click", favoriteCard)
+ideaGrid.addEventListener("click", checkStarId)
 
 function deleteAndRender() {
   deleteCard();
   render();
 }
-
-
 
 function addIdeas() {
   createIdea()
@@ -65,29 +63,60 @@ function deleteCard() {
 }
 
 
-//Gabby's Code for Favorite Function
-//Assign each card to a grandy daddy id
-//toggle function between cards
-
-function favoriteCard() {
-//event.target.id === event.target.parentNode.parentNode.id
+function checkStarId() {
+  var target = event.target.classList.contains('star-button');
+  var containerId = parseInt(event.target.parentNode.parentNode.id);
   for (var i = 0; i < ideas.length; i++) {
-    if (ideas[i].isStarred === false) {
-      ideas[i].isStarred = true;
-        if (event.target.classList.contains('white-star')) {
-          console.log('you alive?')
-          whiteStarButton.classList.add('hidden')
-          redStarButton.classList.remove('hidden') }
-    } else if (event.target.classList.contains('red-star')) {
-        ideas[i].isStarred = false;
-        if (event.target.classList.contains('white-star')) {
-          redStarButton.classList.add('hidden')
-          whiteStarButton.classList.remove('hidden')
-          console.log('red star')
-        }
-      }
-    }
+    if (ideas[i].id === containerId)
+    changeStar(ideas[i], target);
+    console.log('it works?')
+  }
 }
+
+function changeStar(idea, target) {
+  if (ideas.isStarred === false) {
+    ideas.isStarred = true
+    whiteStarButton.src = `assets/star-active.svg`
+    whiteStarButton.alt = "Red star"
+  } else {
+    ideas.isStarred = false;
+    redStarButton.src = `assets/star.svg`
+    redStarButton.alt = "White star"
+  }
+}
+
+
+
+
+//
+// function favoriteCard() {
+//   if (event.target.classList.contains('white-star')) {
+//     redStarButton.src = 'assets/star-active.svg'
+//     console.log("change me")
+//   } else {
+//     redStarButton.src = 'assets/star.svg'
+//   }
+// }
+
+// function favoriteCard() {
+// //event.target.id === event.target.parentNode.parentNode.id
+//   for (var i = 0; i < ideas.length; i++) {
+//     if (ideas[i].isStarred === false) {
+//       ideas[i].isStarred = true;
+//         if (event.target.classList.contains('white-star')) {
+//           console.log('you alive?')
+//           whiteStarButton.classList.add('hidden')
+//           redStarButton.classList.remove('hidden') }
+//     } else if (event.target.classList.contains('red-star')) {
+//         ideas[i].isStarred = false;
+//         if (event.target.classList.contains('white-star')) {
+//           redStarButton.classList.add('hidden')
+//           whiteStarButton.classList.remove('hidden')
+//           console.log('red star')
+//         }
+//       }
+//     }
+// }
 
 // event.target.parentNode.parentNode.id
 
@@ -100,8 +129,8 @@ function render() {
     <section class="idea-card" id="${ideas[i].id}">
       <div class="idea-card-top dark-purple" id="ideaCardTop">
         <img src="assets/star.svg" alt="star" id="whiteStar" class="star-button white-star">
-        <img src="assets/star-active.svg" alt="red star" id="redStar" class="star-button red-star hidden">
         <img src="assets/delete.svg" alt="delete" id="deleteButton" class="delete-button">
+        <img src="assets/star-active.svg" alt="red star" id="redStar" class="star-button red-star">
       </div>
       <div class="idea-card-main">
         <h3 class="idea-title bold">${ideas[i].title}</h3>
