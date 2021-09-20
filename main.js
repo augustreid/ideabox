@@ -74,8 +74,8 @@ function checkStarId() {
 }
 
 function changeStar(idea, target) {
-  if (ideas.isStarred === false) {
-    ideas.isStarred = true
+  if (idea.isStarred === false) {
+    idea.isStarred = true
     whiteStarButton.src = `assets/star-active.svg`
     whiteStarButton.alt = "Red star"
   } else {
@@ -84,43 +84,6 @@ function changeStar(idea, target) {
     redStarButton.alt = "White star"
   }
 }
-
-
-
-
-//
-// function favoriteCard() {
-//   if (event.target.classList.contains('white-star')) {
-//     redStarButton.src = 'assets/star-active.svg'
-//     console.log("change me")
-//   } else {
-//     redStarButton.src = 'assets/star.svg'
-//   }
-// }
-
-// function favoriteCard() {
-// //event.target.id === event.target.parentNode.parentNode.id
-//   for (var i = 0; i < ideas.length; i++) {
-//     if (ideas[i].isStarred === false) {
-//       ideas[i].isStarred = true;
-//         if (event.target.classList.contains('white-star')) {
-//           console.log('you alive?')
-//           whiteStarButton.classList.add('hidden')
-//           redStarButton.classList.remove('hidden') }
-//     } else if (event.target.classList.contains('red-star')) {
-//         ideas[i].isStarred = false;
-//         if (event.target.classList.contains('white-star')) {
-//           redStarButton.classList.add('hidden')
-//           whiteStarButton.classList.remove('hidden')
-//           console.log('red star')
-//         }
-//       }
-//     }
-// }
-
-// event.target.parentNode.parentNode.id
-
-
 
 function render() {
   ideaGrid.innerHTML = "";
