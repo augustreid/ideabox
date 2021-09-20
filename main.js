@@ -15,9 +15,11 @@ var ideas = [];
 saveButton.addEventListener('click', addIdeas)
 titleInput.addEventListener('keyup', enableButton)
 bodyInput.addEventListener('keyup', enableButton)
-ideaGrid.addEventListener("click", deleteAndRender);
-ideaGrid.addEventListener("click", checkStarId)
+ideaGrid.addEventListener("click", checkStarId);
+ideaGrid.addEventListener('click', deleteAndRender)
 window.addEventListener("load", loadCards);
+
+
 
 function deleteAndRender() {
   deleteCard();
@@ -60,13 +62,17 @@ function deleteCard() {
 }
 
 function checkStarId() {
+  if (event.target.classList.contains('star-button')){
   var target = event.target;
   console.log(event.target)
   var containerId = parseInt(event.target.parentNode.parentNode.id);
   for (var i = 0; i < ideas.length; i++) {
     if (ideas[i].id === containerId) {
     changeStar(ideas[i], target);
+      }
     }
+  }
+}
 
 function loadCards() {
   ideas = [];
@@ -84,10 +90,12 @@ function changeStar(idea, target) {
     idea.isStarred = true;
     target.src = "assets/star-active.svg";
     target.alt = "Red Star";
+    console.log(target.src);
   } else if (idea.isStarred === true) {
-    idea.isStarred = false
+    idea.isStarred = false;
     target.src = "assets/star.svg";
     target.alt = "White star";
+    console.log(target.src);
   }
 }
 
@@ -98,7 +106,7 @@ function render() {
     ideaGrid.innerHTML += `
     <section class="idea-card" id="${ideas[i].id}">
       <div class="idea-card-top dark-purple" id="ideaCardTop">
-        <img src="assets/star.svg" alt="star" id="whiteStar" class="star-button white-star">
+        <img src="assets/star.svg" alt="White star" class="star-button">
         <img src="assets/delete.svg" alt="delete" id="deleteButton" class="delete-button">
       </div>
       <div class="idea-card-main">
