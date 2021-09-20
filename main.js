@@ -64,24 +64,25 @@ function deleteCard() {
 
 
 function checkStarId() {
-  var target = event.target.classList.contains('star-button');
+  var target = event.target;
   var containerId = parseInt(event.target.parentNode.parentNode.id);
   for (var i = 0; i < ideas.length; i++) {
-    if (ideas[i].id === containerId)
+    if (ideas[i].id === containerId) {
     changeStar(ideas[i], target);
     console.log('it works?')
+    }
   }
 }
 
 function changeStar(idea, target) {
   if (idea.isStarred === false) {
     idea.isStarred = true
-    whiteStarButton.src = `assets/star-active.svg`
-    whiteStarButton.alt = "Red star"
+    target.src = `./assets/star-active.svg`
+    target.alt = "Red star"
   } else {
     ideas.isStarred = false;
-    redStarButton.src = `assets/star.svg`
-    redStarButton.alt = "White star"
+    target.src = `./assets/star.svg`
+    target.alt = "White star"
   }
 }
 
