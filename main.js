@@ -15,8 +15,9 @@ var ideas = [];
 saveButton.addEventListener('click', addIdeas)
 titleInput.addEventListener('keyup', enableButton)
 bodyInput.addEventListener('keyup', enableButton)
-// ideaGrid.addEventListener("click", deleteAndRender);
+ideaGrid.addEventListener("click", deleteAndRender);
 ideaGrid.addEventListener("click", checkStarId)
+window.addEventListener("load", loadCards);
 
 function deleteAndRender() {
   deleteCard();
@@ -34,12 +35,6 @@ function createIdea() {
   var newIdea = new Idea(titleInput.value, bodyInput.value);
   ideas.push(newIdea);
   newIdea.saveToStorage();
-
-}
-
-function saveIdea() {
-  var stringifiedArray = JSON.stringify(ideas);
-  localStorage.setItem('savedArray', stringifiedArray);
 }
 
 function clearOnSave() {
@@ -56,12 +51,13 @@ function enableButton() {
 function deleteCard() {
   if (event.target.classList.contains('delete-button')) {
     for (var i = 0; i < ideas.length; i++) {
-   (ideas[i].id === parseInt(event.target.parentNode.id))
-         ideas.splice(i, 1)
+  if (ideas[i].id === parseInt(event.target.parentNode.parentNode.id)) {
+           ideas.splice(i, 1);
+         console.log(event.target.parentNode.id)
+      }
     }
   }
 }
-
 
 function checkStarId() {
   var target = event.target;
@@ -71,6 +67,15 @@ function checkStarId() {
     if (ideas[i].id === containerId) {
     changeStar(ideas[i], target);
     }
+
+function loadCards() {
+  ideas = [];
+  for (var i = 0; i < localStorage.length; i++) {
+    var key = localStorage.key(i);
+    var storedCard = JSON.parse(localStorage.getItem(key));
+    var displayedCard = new Idea(storedCard.title, storedCard.body, storedCard.star, storedCard.id);
+    ideas.push(displayedCard)
+    render();
   }
 }
 
@@ -95,7 +100,6 @@ function render() {
       <div class="idea-card-top dark-purple" id="ideaCardTop">
         <img src="assets/star.svg" alt="star" id="whiteStar" class="star-button white-star">
         <img src="assets/delete.svg" alt="delete" id="deleteButton" class="delete-button">
-        <img src="assets/star-active.svg" alt="red star" id="redStar" class="star-button red-star">
       </div>
       <div class="idea-card-main">
         <h3 class="idea-title bold">${ideas[i].title}</h3>
