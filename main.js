@@ -21,37 +21,37 @@ ideaGrid.addEventListener('click', deleteAndRender)
 var ideas = [];
 
 function addIdeas() {
-  createIdea()
-  clearOnSave()
-  render()
-  disableButton()
-}
+  createIdea();
+  clearOnSave();
+  render();
+  disableButton();
+};
 
 function deleteAndRender() {
   deleteCard();
   render();
-}
+};
 
 function createIdea() {
   var newIdea = new Idea(titleInput.value, bodyInput.value);
   ideas.push(newIdea);
   newIdea.saveToStorage();
-}
+};
 
 function clearOnSave() {
   titleInput.value = "";
   bodyInput.value = "";
-}
+};
 
 function enableButton() {
   if (titleInput.value != "" && bodyInput.value != "") {
     saveButton.disabled = false;
-  }
-}
+  };
+};
 
 function disableButton() {
   saveButton.disabled = true;
-}
+};
 
 function deleteCard() {
   if (event.target.classList.contains('delete-button')) {
@@ -60,23 +60,23 @@ function deleteCard() {
         var deleteKey = `${ideas[i].id}`;
         ideas.splice(i, 1);
         localStorage.removeItem(deleteKey);
-      }
-    }
-  }
-}
+      };
+    };
+  };
+};
 
 function checkStarId() {
   if (event.target.classList.contains('star-button')){
     var target = event.target;
-    console.log(event.target)
+    console.log(event.target);
     var containerId = parseInt(event.target.parentNode.parentNode.id);
   for (var i = 0; i < ideas.length; i++) {
     if (ideas[i].id === containerId) {
     changeStar(ideas[i], target);
-      }
-    }
-  }
-}
+  };
+};
+};
+};
 
 function loadCards() {
   ideas = [];
@@ -84,10 +84,10 @@ function loadCards() {
     var key = localStorage.key(i);
     var storedCard = JSON.parse(localStorage.getItem(key));
     var displayedCard = new Idea(storedCard.title, storedCard.body, storedCard.star, storedCard.id);
-    ideas.push(displayedCard)
+    ideas.push(displayedCard);
     render();
-  }
-}
+  };
+};
 
 function changeStar(idea, target) {
   if (idea.isStarred === false) {
@@ -100,8 +100,8 @@ function changeStar(idea, target) {
     target.src = "assets/star.svg";
     target.alt = "White star";
     console.log(target.src);
-  }
-}
+  };
+};
 
 function render() {
   ideaGrid.innerHTML = "";
@@ -121,5 +121,5 @@ function render() {
         <h3 class="bold comment">Comment</h3>
       </button>
     </section>`
-  }
-}
+  };
+};
