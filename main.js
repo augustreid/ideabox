@@ -57,9 +57,7 @@ function deleteCard() {
   if (event.target.classList.contains('delete-button')) {
     for (var i = 0; i < ideas.length; i++) {
       if (ideas[i].id === parseInt(event.target.parentNode.parentNode.id)) {
-        var deleteKey = `${ideas[i].id}`;
         ideas.splice(i, 1);
-        localStorage.removeItem(deleteKey);
       };
     };
   };
