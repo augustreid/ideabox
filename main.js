@@ -50,10 +50,12 @@ function enableButton() {
   }
 }
 
-function deleteCard() {
+function deleteCard(event) {
   if (event.target.classList.contains('delete-button')) {
     for (var i = 0; i < ideas.length; i++) {
   if (ideas[i].id === parseInt(event.target.parentNode.parentNode.id)) {
+    console.log(ideas[i].id);
+    console.log(event.target.parentNode.parentNode.id);
            ideas.splice(i, 1);
          console.log(event.target.parentNode.id)
       }
@@ -64,24 +66,12 @@ function deleteCard() {
 function checkStarId() {
   if (event.target.classList.contains('star-button')){
   var target = event.target;
-  console.log(event.target)
   var containerId = parseInt(event.target.parentNode.parentNode.id);
   for (var i = 0; i < ideas.length; i++) {
     if (ideas[i].id === containerId) {
     changeStar(ideas[i], target);
       }
     }
-  }
-}
-
-function loadCards() {
-  ideas = [];
-  for (var i = 0; i < localStorage.length; i++) {
-    var key = localStorage.key(i);
-    var storedCard = JSON.parse(localStorage.getItem(key));
-    var displayedCard = new Idea(storedCard.title, storedCard.body, storedCard.star, storedCard.id);
-    ideas.push(displayedCard)
-    render();
   }
 }
 
@@ -96,6 +86,17 @@ function changeStar(idea, target) {
     target.src = "assets/star.svg";
     target.alt = "White star";
     console.log(target.src);
+  }
+}
+
+function loadCards() {
+  ideas = [];
+  for (var i = 0; i < localStorage.length; i++) {
+    var key = localStorage.key(i);
+    var storedCard = JSON.parse(localStorage.getItem(key));
+    var displayedCard = new Idea(storedCard.title, storedCard.body, storedCard.star, storedCard.id);
+    ideas.push(displayedCard)
+    render();
   }
 }
 
