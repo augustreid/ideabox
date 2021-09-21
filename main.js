@@ -15,13 +15,13 @@ var ideas = [];
 saveButton.addEventListener('click', addIdeas)
 titleInput.addEventListener('keyup', enableButton)
 bodyInput.addEventListener('keyup', enableButton)
-ideaGrid.addEventListener("click", checkStarId);
-ideaGrid.addEventListener('click', deleteAndRender)
+// ideaGrid.addEventListener("click", checkStarId);
+// ideaGrid.addEventListener('click', deleteAndRender)
+ideaGrid.addEventListener("click", parent)
 window.addEventListener("load", loadCards);
 
-
-
 function deleteAndRender() {
+  // checkStarId();
   deleteCard();
   render();
 }
@@ -50,21 +50,26 @@ function enableButton() {
   }
 }
 
-function deleteCard(event) {
+function parent(event) {
+  console.log(event)
+  console.log(event.target.classList)
+  if (event.target.classList.contains('star-button')) {
+    checkStarId(event);
+  }
   if (event.target.classList.contains('delete-button')) {
-    for (var i = 0; i < ideas.length; i++) {
-  if (ideas[i].id === parseInt(event.target.parentNode.parentNode.id)) {
-    console.log(ideas[i].id);
-    console.log(event.target.parentNode.parentNode.id);
-           ideas.splice(i, 1);
-         console.log(event.target.parentNode.id)
-      }
-    }
+    deleteAndRender();
   }
 }
 
-function checkStarId() {
-  if (event.target.classList.contains('star-button')){
+function deleteCard() {
+  for (var i = 0; i < ideas.length; i++) {
+  if (ideas[i].id === parseInt(event.target.parentNode.parentNode.id)) {
+           ideas.splice(i, 1);
+      }
+    }
+  }
+
+function checkStarId(event) {
   var target = event.target;
   var containerId = parseInt(event.target.parentNode.parentNode.id);
   for (var i = 0; i < ideas.length; i++) {
@@ -73,7 +78,6 @@ function checkStarId() {
       }
     }
   }
-}
 
 function changeStar(idea, target) {
   if (idea.isStarred === false) {
