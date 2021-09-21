@@ -11,16 +11,14 @@ var ideaGrid = document.querySelector("#ideaGrid");
 var ideaCard = document.querySelector('#ideaCard');
 var ideaCardTop = document.querySelector('#ideaCardTop');
 
+window.addEventListener("load", loadCards);
 saveButton.addEventListener('click', addIdeas)
 titleInput.addEventListener('keyup', enableButton)
 bodyInput.addEventListener('keyup', enableButton)
 ideaGrid.addEventListener("click", checkStarId);
 ideaGrid.addEventListener('click', deleteAndRender)
-window.addEventListener("load", loadCards);
 
 var ideas = [];
-
-
 
 function addIdeas() {
   createIdea()
@@ -33,6 +31,7 @@ function deleteAndRender() {
   deleteCard();
   render();
 }
+
 function createIdea() {
   var newIdea = new Idea(titleInput.value, bodyInput.value);
   ideas.push(newIdea);
@@ -48,6 +47,10 @@ function enableButton() {
   if (titleInput.value != "" && bodyInput.value != "") {
     saveButton.disabled = false;
   }
+}
+
+function disableButton() {
+  saveButton.disabled = true;
 }
 
 function deleteCard() {
@@ -100,7 +103,6 @@ function changeStar(idea, target) {
   }
 }
 
-
 function render() {
   ideaGrid.innerHTML = "";
   for (var i = 0; i < ideas.length; i++) {
@@ -120,8 +122,4 @@ function render() {
       </button>
     </section>`
   }
-}
-
-function disableButton() {
-  saveButton.disabled = true;
 }
