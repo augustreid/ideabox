@@ -1,34 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <title>Ideabox</title>
 </head>
-
 <body>
-  <aside>
+  <aside class="text-class">
     <h1 class="bold">IdeaBox</h1>
     <section class="starred-box">
-      <h4 class="filter-starred-ideas">Filter Starred Ideas</h4>
+      <h4 class="filter-starred-ideas text-class">Filter Starred Ideas</h4>
       <button type="button" class="show-starred-ideas">Show Starred Ideas</button>
     </section>
   </aside>
   <main>
     <section class="input-form-body">
-      <form class="idea-input-form">
+      <form class="idea-input-form text-class">
         <label for=“title” class="idea-title">Title</label>
         <input type=“text” name="title" class="idea-title-input">
         <label for=“body-form” class="user-text">Body</label>
         <input type=“text” name="body-form" class="idea-body-input">
       </form>
-      <button type="button" disabled class="dark-purple save-button" id='saveButton'>Save</button>
+      <button type="button" disabled class="dark-purple save-button text-class" id='saveButton'>Save</button>
       <div class="search-area">
         <button type="button" class="search-button dark-purple">
           <img src="assets/search.svg" alt="search icon" class="search-icon"></button>
-        <input type="text" name="search-input" id="search-bar" placeholder="Search ideas">
+        <input type="text" name="search-input" class="search-bar" id="search-bar" placeholder="Search ideas">
       </div>
     </section>
     <section class="idea-grid" id="ideaGrid">
@@ -37,5 +35,4 @@
   <script src="Idea.js"></script>
   <script src="main.js"></script>
 </body>
-
 </html>

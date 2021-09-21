@@ -1,6 +1,5 @@
 body {
   display: flex;
-  font-family: "open sans", sans-serif;
   font-weight: lighter;
   padding: 0px;
   margin: 0px;
@@ -8,23 +7,52 @@ body {
   height: 100%;
 }
 
-/* .bold {
-  font-weight: bold;
-} */
-h1,
-.show-starred-ideas,
-.save-button,
-.comment {
-  color: #e9e9f3;
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #353567;
+  border-radius: 2px;
 }
 
-h1 {
-  font-size: 20px;
-  font-family: "open sans", sans-serif;
-  margin-top: 20px;
-  margin-left: 14px;
-  margin-bottom: 16px;
-  font-weight: 500;
+.idea-grid {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+img {
+  height: 95%;
+}
+
+.hidden {
+  display: none;
+}
+
+.dark-purple {
+  background-color: ##5356a4;
+  border-radius: 0px;
+  font-size: larger;
+}
+
+
+/* Button Cursor */
+.save-button,
+.show-starred-ideas,
+.comment-button,
+.search-button {
+  cursor: pointer;
+}
+
+/* Aside Section Styling */
+aside {
+  font-weight: lighter;
+  background-color: #1f1f3d;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 25%;
 }
 
 .filter-starred-ideas {
@@ -33,7 +61,6 @@ h1 {
 }
 
 .show-starred-ideas {
-  font-family: "open sans", sans-serif;
   font-size: 13px;
   font-weight: bold;
   background-color: #5356a4;
@@ -46,25 +73,40 @@ h1 {
   width: 153px;
 }
 
-aside {
+.starred-box {
+  display: flex;
+  flex-direction: column;
+  padding: 8%;
+  border-top: solid #353567 2px;
+  border-bottom: solid #353567 2px;
+}
+
+/* Text Styling */
+.text-class {
   font-family: "open sans", sans-serif;
-  font-weight: lighter;
-  background-color: #1f1f3d;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 25%;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  border: 1px solid #353567;
-  border-radius: 2px;
+h4 {
+  color: #bfbfdd;
 }
 
+
+h1,
+.show-starred-ideas,
+.save-button,
+.comment {
+  color: #e9e9f3;
+}
+
+h1 {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-left: 14px;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+/* Idea Input Form */
 .input-form-body {
   background-color: #a9aad2;
   display: flex;
@@ -102,6 +144,7 @@ main {
   justify-content: space-around;
 }
 
+/* Save Button Styling */
 .save-button {
   background-color: #1f1f3d;
   width: 50%;
@@ -109,7 +152,6 @@ main {
   margin: 10px 0;
   padding: 0;
   border: 1px solid #353567;
-  cursor: pointer;
 }
 
 .save-button:hover {
@@ -123,18 +165,7 @@ main {
   cursor: none;
 }
 
-img {
-  height: 95%;
-}
-
-.starred-box {
-  display: flex;
-  flex-direction: column;
-  padding: 8%;
-  border-top: solid #353567 2px;
-  border-bottom: solid #353567 2px;
-}
-
+/* Search Area */
 .search-area {
   display: flex;
   width: 50%;
@@ -149,8 +180,8 @@ img {
 
 .search-button {
   display: flex;
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
   background-color: #1f1f3d;
   width: 40px;
   height: 40px;
@@ -161,7 +192,7 @@ img {
   border: 0;
 }
 
-#search-bar {
+.search-bar {
   padding: 7px;
   display: inline;
   margin: 0;
@@ -170,6 +201,7 @@ img {
   border-radius: 2px;
 }
 
+/* Idea Card Styling */
 .idea-card {
   display: flex;
   flex-direction: column;
@@ -205,6 +237,7 @@ img {
   overflow: scroll;
 }
 
+/* Comment Section */
 .comment-button {
   display: flex;
   flex-direction: row;
@@ -217,34 +250,10 @@ img {
   height: 25px;
 }
 
-.idea-grid {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
-
-.dark-purple {
-  background-color: ##5356a4;
-  border-radius: 0px;
-  font-size: larger;
-}
-
 .comment-button {
   background-color: #5356a4;
   padding: 5%;
   border-style: none;
-}
-
-h4 {
-  color: #bfbfdd;
-}
-
-.hidden {
-  display: none;
-}
-
-.fill {
-  background-color: red;
 }
 
 .comment{
