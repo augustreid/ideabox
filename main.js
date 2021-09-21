@@ -15,16 +15,8 @@ var ideas = [];
 saveButton.addEventListener('click', addIdeas)
 titleInput.addEventListener('keyup', enableButton)
 bodyInput.addEventListener('keyup', enableButton)
-// ideaGrid.addEventListener("click", checkStarId);
-// ideaGrid.addEventListener('click', deleteAndRender)
-ideaGrid.addEventListener("click", parent)
+ideaGrid.addEventListener("click", favoriteAndDeleteCard)
 window.addEventListener("load", loadCards);
-
-function deleteAndRender() {
-  // checkStarId();
-  deleteCard();
-  render();
-}
 
 function addIdeas() {
   createIdea()
@@ -50,9 +42,7 @@ function enableButton() {
   }
 }
 
-function parent(event) {
-  console.log(event)
-  console.log(event.target.classList)
+function favoriteAndDeleteCard(event) {
   if (event.target.classList.contains('star-button')) {
     checkStarId(event);
   }
@@ -67,6 +57,11 @@ function deleteCard() {
            ideas.splice(i, 1);
       }
     }
+  }
+
+  function deleteAndRender() {
+    deleteCard();
+    render();
   }
 
 function checkStarId(event) {
