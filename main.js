@@ -1,16 +1,15 @@
+var saveButton = document.querySelector(".save-button");
+var showStarredButton = document.querySelector(".show-starred-ideas");
+var searchButton = document.querySelector(".search-button");
+var deleteButton = document.querySelector(".delete-button");
+var whiteStarButton = document.querySelector('#whiteStar')
+var redStarButton = document.querySelector('#redStar')
 var titleInput = document.querySelector(".idea-title-input");
 var bodyInput = document.querySelector(".idea-body-input");
-var saveButton = document.querySelector(".save-button");
 var searchInput = document.querySelector("#searchBar");
-var searchButton = document.querySelector(".search-button");
-var showStarredButton = document.querySelector(".show-starred-ideas");
-var deleteButton = document.querySelector(".delete-button");
 var ideaGrid = document.querySelector("#ideaGrid");
 var ideaCard = document.querySelector('#ideaCard');
 var ideaCardTop = document.querySelector('#ideaCardTop');
-var whiteStarButton = document.querySelector('#whiteStar')
-var redStarButton = document.querySelector('#redStar')
-var ideas = [];
 
 saveButton.addEventListener('click', addIdeas)
 titleInput.addEventListener('keyup', enableButton)
@@ -19,12 +18,9 @@ ideaGrid.addEventListener("click", checkStarId);
 ideaGrid.addEventListener('click', deleteAndRender)
 window.addEventListener("load", loadCards);
 
+var ideas = [];
 
 
-function deleteAndRender() {
-  deleteCard();
-  render();
-}
 
 function addIdeas() {
   createIdea()
@@ -33,6 +29,10 @@ function addIdeas() {
   disableButton()
 }
 
+function deleteAndRender() {
+  deleteCard();
+  render();
+}
 function createIdea() {
   var newIdea = new Idea(titleInput.value, bodyInput.value);
   ideas.push(newIdea);
@@ -53,9 +53,10 @@ function enableButton() {
 function deleteCard() {
   if (event.target.classList.contains('delete-button')) {
     for (var i = 0; i < ideas.length; i++) {
-  if (ideas[i].id === parseInt(event.target.parentNode.parentNode.id)) {
-           ideas.splice(i, 1);
-         console.log(event.target.parentNode.id)
+      if (ideas[i].id === parseInt(event.target.parentNode.parentNode.id)) {
+        var deleteKey = `${ideas[i].id}`;
+        ideas.splice(i, 1);
+        localStorage.removeItem(deleteKey);
       }
     }
   }
@@ -63,9 +64,9 @@ function deleteCard() {
 
 function checkStarId() {
   if (event.target.classList.contains('star-button')){
-  var target = event.target;
-  console.log(event.target)
-  var containerId = parseInt(event.target.parentNode.parentNode.id);
+    var target = event.target;
+    console.log(event.target)
+    var containerId = parseInt(event.target.parentNode.parentNode.id);
   for (var i = 0; i < ideas.length; i++) {
     if (ideas[i].id === containerId) {
     changeStar(ideas[i], target);
