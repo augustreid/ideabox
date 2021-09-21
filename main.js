@@ -57,10 +57,15 @@ function deleteCard() {
   if (event.target.classList.contains('delete-button')) {
     for (var i = 0; i < ideas.length; i++) {
       if (ideas[i].id === parseInt(event.target.parentNode.parentNode.id)) {
+        deleteFromStorage(ideas[i]);
         ideas.splice(i, 1);
       };
     };
   };
+};
+
+function deleteFromStorage(toDelete) {
+  localStorage.removeItem(`${toDelete.id}`);
 };
 
 function checkStarId() {

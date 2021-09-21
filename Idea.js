@@ -10,9 +10,6 @@ class Idea {
     var stringifiedIdea = JSON.stringify(this);
     localStorage.setItem(`${this.id}`, stringifiedIdea);
   };
-  deleteFromStorage() {
-    localStorage.removeItem(`${this.id}`);
-  };
   updateIdea() {
     var getItem = localStorage.getItem(`${this.id}`);
     var parsedIdea = JSON.parse(getItem);
