@@ -66,16 +66,15 @@ function deleteCard() {
 };
 
 function checkStarId() {
-  if (event.target.classList.contains('star-button')){
+  if (event.target.classList.contains('star-button')) {
     var target = event.target;
-    console.log(event.target);
     var containerId = parseInt(event.target.parentNode.parentNode.id);
-  for (var i = 0; i < ideas.length; i++) {
-    if (ideas[i].id === containerId) {
-    changeStar(ideas[i], target);
+    for (var i = 0; i < ideas.length; i++) {
+      if (ideas[i].id === containerId) {
+        changeStar(ideas[i], target);
+      };
+    };
   };
-};
-};
 };
 
 function loadCards() {
@@ -94,12 +93,10 @@ function changeStar(idea, target) {
     idea.isStarred = true;
     target.src = "assets/star-active.svg";
     target.alt = "Red Star";
-    console.log(target.src);
   } else if (idea.isStarred === true) {
     idea.isStarred = false;
     target.src = "assets/star.svg";
     target.alt = "White star";
-    console.log(target.src);
   };
 };
 
