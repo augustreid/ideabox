@@ -15,6 +15,9 @@ The comp was built to a specified design, and some functionality implemented.
 - CSS
 - Atom
 
+## Project Spec:
+The project instructions and rubric can be found [HERE](https://frontend.turing.edu/projects/module-1/ideabox-group.html)
+
 ## Wins:
 A huge amount of learning went into this project. Overall positive teamwork experience. 
 Although we didn't get as far as we would have liked, there was a lot of respect for each other's time, energy, and boundaries. 
@@ -24,6 +27,8 @@ Most of it was a challenge. We did not finish. Early on, some CSS work was lost 
 The biggest specific challenges were the functions to favorite and delete cards, and working with local storage. 
 
 ## User Instructions:
+The deployed project can be found [HERE](https://augustreid.github.io/ideabox/)
+
 When the page loads, you will see input fields for `title` and `body`. Once text is entered into both fields, you will be able to 
 **click** the `save button` to save your idea. 
 
