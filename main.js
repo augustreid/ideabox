@@ -11,25 +11,20 @@ var ideaGrid = document.querySelector("#ideaGrid");
 var ideaCard = document.querySelector('#ideaCard');
 var ideaCardTop = document.querySelector('#ideaCardTop');
 
+var ideas = [];
+
 window.addEventListener("load", loadCards);
 saveButton.addEventListener('click', addIdeas)
 titleInput.addEventListener('keyup', enableButton)
 bodyInput.addEventListener('keyup', enableButton)
-ideaGrid.addEventListener("click", checkStarId);
-ideaGrid.addEventListener('click', deleteAndRender)
-
-var ideas = [];
+ideaGrid.addEventListener("click", favoriteAndDeleteCard)
+window.addEventListener("load", loadCards);
 
 function addIdeas() {
   createIdea();
   clearOnSave();
   render();
   disableButton();
-};
-
-function deleteAndRender() {
-  deleteCard();
-  render();
 };
 
 function createIdea() {
@@ -53,43 +48,37 @@ function disableButton() {
   saveButton.disabled = true;
 };
 
-function deleteCard() {
-  if (event.target.classList.contains('delete-button')) {
-    for (var i = 0; i < ideas.length; i++) {
-      if (ideas[i].id === parseInt(event.target.parentNode.parentNode.id)) {
-        deleteFromStorage(ideas[i]);
-        ideas.splice(i, 1);
-      };
-    };
-  };
-};
-
-function deleteFromStorage(toDelete) {
-  localStorage.removeItem(`${toDelete.id}`);
-};
-
-function checkStarId() {
+function favoriteAndDeleteCard(event) {
   if (event.target.classList.contains('star-button')) {
-    var target = event.target;
-    var containerId = parseInt(event.target.parentNode.parentNode.id);
-    for (var i = 0; i < ideas.length; i++) {
-      if (ideas[i].id === containerId) {
-        changeStar(ideas[i], target);
-      };
-    };
+    checkStarId(event);
+  }
+  if (event.target.classList.contains('delete-button')) {
+    deleteAndRender();
   };
 };
 
-function loadCards() {
-  ideas = [];
-  for (var i = 0; i < localStorage.length; i++) {
-    var key = localStorage.key(i);
-    var storedCard = JSON.parse(localStorage.getItem(key));
-    var displayedCard = new Idea(storedCard.title, storedCard.body, storedCard.star, storedCard.id);
-    ideas.push(displayedCard);
+function deleteCard() {
+  for (var i = 0; i < ideas.length; i++) {
+  if (ideas[i].id === parseInt(event.target.parentNode.parentNode.id)) {
+           ideas.splice(i, 1);
+      };
+    };
+  };
+
+  function deleteAndRender() {
+    deleteCard();
     render();
   };
-};
+
+function checkStarId(event) {
+  var target = event.target;
+  var containerId = parseInt(event.target.parentNode.parentNode.id);
+  for (var i = 0; i < ideas.length; i++) {
+    if (ideas[i].id === containerId) {
+    changeStar(ideas[i], target);
+      };
+    };
+  };
 
 function changeStar(idea, target) {
   if (idea.isStarred === false) {
@@ -100,6 +89,17 @@ function changeStar(idea, target) {
     idea.isStarred = false;
     target.src = "assets/star.svg";
     target.alt = "White star";
+  };
+};
+
+function loadCards() {
+  ideas = [];
+  for (var i = 0; i < localStorage.length; i++) {
+    var key = localStorage.key(i);
+    var storedCard = JSON.parse(localStorage.getItem(key));
+    var displayedCard = new Idea(storedCard.title, storedCard.body, storedCard.star, storedCard.id);
+    ideas.push(displayedCard)
+    render();
   };
 };
 
