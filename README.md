@@ -5,15 +5,15 @@ This group project combined all of our new skills to create an app for jotting d
 The comp was built to a specified design, and some functionality implemented. 
 
 ## Contributors: 
--[Gabby Recny](https://github.com/Gabby-Recny)
--[David Tran](https://github.com/isleofyou)
--[August Reid](https://github.com/augustreid)
+- [Gabby Recny](https://github.com/Gabby-Recny)
+- [David Tran](https://github.com/isleofyou)
+- [August Reid](https://github.com/augustreid)
 
 ## Technologies Used:
--Javascript
--HTML
--CSS
--Atom
+- Javascript
+- HTML
+- CSS
+- Atom
 
 ## Wins:
 A huge amount of learning went into this project. Overall positive teamwork experience. 
